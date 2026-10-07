@@ -34,34 +34,34 @@ const { useState, useMemo, useRef, useCallback, useEffect } = React;
 // ---------- roster data (extracted from the club/world roster sheets) ----------
 
 const CLUB_ROSTER_INITIAL = [
-  { id: 1,  femaleFirst: "Melissa",  femaleLast: "Woch",       maleFirst: "Scott",    maleLast: "Moss",       email: "Melissa.woch@gmail.com" },
-  { id: 2,  femaleFirst: "Melissa",  femaleLast: "Rutherford", maleFirst: "Kevin",    maleLast: "Rutherford", email: "melissarutherford19@gmail.com" },
-  { id: 3,  femaleFirst: "Tracy",    femaleLast: "Sorenson",   maleFirst: "Cameron",  maleLast: "Sorenson",   email: "taltherr03@gmail.com" },
-  { id: 4,  femaleFirst: "Jennifer", femaleLast: "Collins",    maleFirst: "Sean",     maleLast: "Aronson",    email: "Jecollins72@gmail.com" },
-  { id: 5,  femaleFirst: "Melissa",  femaleLast: "Gaisser",    maleFirst: "Chris",    maleLast: "Hopp",       email: "melissagaisser@gmail.com" },
-  { id: 6,  femaleFirst: "Lillian",  femaleLast: "Mignella",   maleFirst: "Joel",     maleLast: "Calhoun",    email: "joel.calhoun@gmail.com" },
-  { id: 7,  femaleFirst: "Sylvia",   femaleLast: "Veleker",    maleFirst: "Mason",    maleLast: "Tikkanen",   email: "mason@positionpos.com" },
-  { id: 8,  femaleFirst: "Linda",    femaleLast: "Arra",       maleFirst: "Tom",      maleLast: "Arra",       email: "lindaarra4@gmail.com" },
-  { id: 9,  femaleFirst: "Flannery", femaleLast: "Allison",    maleFirst: "Michael",  maleLast: "Allison",    email: "flannerallison4@gmail.com" },
-  { id: 10, femaleFirst: "Emily",    femaleLast: "Minzel",     maleFirst: "Nick",     maleLast: "DeJongh",    email: "nicholas.j.dejongh@gmail.com" },
-  { id: 11, femaleFirst: "Emily",    femaleLast: "Schweitzer", maleFirst: "Blake",    maleLast: "Hagberg",    email: "Blakehagberg@gmail.com" },
-  { id: 12, femaleFirst: "Hannah",   femaleLast: "Record",     maleFirst: "Matt",     maleLast: "Record",     email: "matt.record21@gmail.com" },
-  { id: 13, femaleFirst: "Tessa",    femaleLast: "Parker",     maleFirst: "Dave",     maleLast: "Hurst",      email: "tessa.n.parker1@gmail.com" },
-  { id: 14, femaleFirst: "Maribeth", femaleLast: "Oblander",   maleFirst: "Jason",    maleLast: "Oblander",   email: "rjo4u@yahoo.com" },
-  { id: 15, femaleFirst: "Jenna",    femaleLast: "Chapiewsky", maleFirst: "Ryan",     maleLast: "Chapiewsky", email: "Jenna.Chapiewsky@gmail.com" },
-  { id: 16, femaleFirst: "Ellyn",    femaleLast: "Subak",      maleFirst: "Andy",     maleLast: "Merlin",     email: "Emsubak@gmail.com" },
-  { id: 17, femaleFirst: "Mandy",    femaleLast: "Gangwer",    maleFirst: "Rob",      maleLast: "Binns",      email: "mandy.gangwer@gmail.com" },
-  { id: 18, femaleFirst: "Beth",     femaleLast: "Lundquist",  maleFirst: "Brian",    maleLast: "Terwedo",    email: "bethlundquist@comcast.net" },
-  { id: 19, femaleFirst: "Katherine",femaleLast: "Stewart",    maleFirst: "Staffan",  maleLast: "Axelsson",   email: "curlingstaffan@gmail.com" },
-  { id: 20, femaleFirst: "Rebecca",  femaleLast: "Bergin",     maleFirst: "Jason",    maleLast: "Botterill",  email: "Jason.L.Botterill@gmail.com" },
-  { id: 21, femaleFirst: "Jenny",    femaleLast: "Levy",       maleFirst: "Ben",      maleLast: "Levy",       email: "benjaminlevy@gmail.com" },
-  { id: 22, femaleFirst: "Megan",    femaleLast: "Gorman",     maleFirst: "Eoin",     maleLast: "Gorman",     email: "thegormans.mke@gmail.com" },
-  { id: 23, femaleFirst: "Connie",   femaleLast: "Fernholz",   maleFirst: "Cameron",  maleLast: "Kim",        email: "constance.fernholz@gmail.com" },
-  { id: 24, femaleFirst: "Judy",     femaleLast: "Echols",     maleFirst: "Bill",     maleLast: "Echols",     email: "judyechols386@gmail.com" },
-  { id: 25, femaleFirst: "Lori",     femaleLast: "Cassidy",    maleFirst: "Greg",     maleLast: "Torkelson",  email: "gtork3@gmail.com" },
-  { id: 26, femaleFirst: "Kailey",   femaleLast: "Meyer",      maleFirst: "Scott",    maleLast: "Meyer",      email: "kszalko@gmail.com" },
-  { id: 27, femaleFirst: "Tempest",  femaleLast: "McKenzie",   maleFirst: "Kent",     maleLast: "McKenzie",   email: "Kentm@alumni.duke.edu" },
-  { id: 28, femaleFirst: "Autumn",   femaleLast: "Wood",       maleFirst: "Cole",     maleLast: "Roberg",     email: "auwo2@icloud.com" },
+  { id: 1,  femaleFirst: "Melissa",  femaleLast: "Woch",       maleFirst: "Scott",    maleLast: "Moss" },
+  { id: 2,  femaleFirst: "Melissa",  femaleLast: "Rutherford", maleFirst: "Kevin",    maleLast: "Rutherford" },
+  { id: 3,  femaleFirst: "Tracy",    femaleLast: "Sorenson",   maleFirst: "Cameron",  maleLast: "Sorenson" },
+  { id: 4,  femaleFirst: "Jennifer", femaleLast: "Collins",    maleFirst: "Sean",     maleLast: "Aronson" },
+  { id: 5,  femaleFirst: "Melissa",  femaleLast: "Gaisser",    maleFirst: "Chris",    maleLast: "Hopp" },
+  { id: 6,  femaleFirst: "Lillian",  femaleLast: "Mignella",   maleFirst: "Joel",     maleLast: "Calhoun" },
+  { id: 7,  femaleFirst: "Sylvia",   femaleLast: "Veleker",    maleFirst: "Mason",    maleLast: "Tikkanen" },
+  { id: 8,  femaleFirst: "Linda",    femaleLast: "Arra",       maleFirst: "Tom",      maleLast: "Arra" },
+  { id: 9,  femaleFirst: "Flannery", femaleLast: "Allison",    maleFirst: "Michael",  maleLast: "Allison" },
+  { id: 10, femaleFirst: "Emily",    femaleLast: "Minzel",     maleFirst: "Nick",     maleLast: "DeJongh" },
+  { id: 11, femaleFirst: "Emily",    femaleLast: "Schweitzer", maleFirst: "Blake",    maleLast: "Hagberg" },
+  { id: 12, femaleFirst: "Hannah",   femaleLast: "Record",     maleFirst: "Matt",     maleLast: "Record" },
+  { id: 13, femaleFirst: "Tessa",    femaleLast: "Parker",     maleFirst: "Dave",     maleLast: "Hurst" },
+  { id: 14, femaleFirst: "Maribeth", femaleLast: "Oblander",   maleFirst: "Jason",    maleLast: "Oblander" },
+  { id: 15, femaleFirst: "Jenna",    femaleLast: "Chapiewsky", maleFirst: "Ryan",     maleLast: "Chapiewsky" },
+  { id: 16, femaleFirst: "Ellyn",    femaleLast: "Subak",      maleFirst: "Andy",     maleLast: "Merlin" },
+  { id: 17, femaleFirst: "Mandy",    femaleLast: "Gangwer",    maleFirst: "Rob",      maleLast: "Binns" },
+  { id: 18, femaleFirst: "Beth",     femaleLast: "Lundquist",  maleFirst: "Brian",    maleLast: "Terwedo" },
+  { id: 19, femaleFirst: "Katherine",femaleLast: "Stewart",    maleFirst: "Staffan",  maleLast: "Axelsson" },
+  { id: 20, femaleFirst: "Rebecca",  femaleLast: "Bergin",     maleFirst: "Jason",    maleLast: "Botterill" },
+  { id: 21, femaleFirst: "Jenny",    femaleLast: "Levy",       maleFirst: "Ben",      maleLast: "Levy" },
+  { id: 22, femaleFirst: "Megan",    femaleLast: "Gorman",     maleFirst: "Eoin",     maleLast: "Gorman" },
+  { id: 23, femaleFirst: "Connie",   femaleLast: "Fernholz",   maleFirst: "Cameron",  maleLast: "Kim" },
+  { id: 24, femaleFirst: "Judy",     femaleLast: "Echols",     maleFirst: "Bill",     maleLast: "Echols" },
+  { id: 25, femaleFirst: "Lori",     femaleLast: "Cassidy",    maleFirst: "Greg",     maleLast: "Torkelson" },
+  { id: 26, femaleFirst: "Kailey",   femaleLast: "Meyer",      maleFirst: "Scott",    maleLast: "Meyer" },
+  { id: 27, femaleFirst: "Tempest",  femaleLast: "McKenzie",   maleFirst: "Kent",     maleLast: "McKenzie" },
+  { id: 28, femaleFirst: "Autumn",   femaleLast: "Wood",       maleFirst: "Cole",     maleLast: "Roberg" },
 ].map((t) => ({ ...t, display: `${t.femaleLast} / ${t.maleLast}` }));
 
 // World roster: 31 of 32 rows were legible in the standings screenshot — the
@@ -128,7 +128,6 @@ const CLUB_COLUMNS = [
   { key: "femaleLast",  label: "Female last",  aliases: ["female last", "female last name", "woman last", "f last"] },
   { key: "maleFirst",   label: "Male first",   aliases: ["male first", "male first name", "man first", "m first"] },
   { key: "maleLast",    label: "Male last",    aliases: ["male last", "male last name", "man last", "m last"] },
-  { key: "email",       label: "Contact email", aliases: ["contact email", "email", "e-mail"] },
 ];
 const WORLD_COLUMNS = [
   { key: "seed",        label: "Seed",         aliases: ["seed", "#", "no", "number"] },
@@ -243,7 +242,7 @@ function buildRenameMap(oldRoster, newRoster, numberField) {
 
 // ---------- autosave (browser localStorage) ----------
 // Bump STORAGE_VERSION whenever the shape of saved data changes.
-const STORAGE_VERSION = 1;
+const STORAGE_VERSION = 2;
 const STORAGE_KEY = `bonspiel-draw-manager:v${STORAGE_VERSION}`;
 
 function loadSaved() {
@@ -446,6 +445,19 @@ function buildClubTemplate() {
   push("D5", "D · 4th place", "Sun", "8:30 AM", 4, { id: "D6", slot: "B" }, "Out");
   push("D6", "D · 4th place CHAMPIONSHIP", "Sun", "1:00 PM", 6, null, "Out");
 
+  // ---- Draw Shot Challenge exception ----
+  // Every team playing a G1 game at Fri 4:00 PM (draw 12) or Fri 10:15 PM
+  // (draw 15) throws a DSC stone instead of that G1 result deciding
+  // anything. Those six G1 slots get no winner/advancement at all, and the
+  // six games they'd normally feed (A1/B1/A6/B6/A7/B7) become hand-placed
+  // too, since seeding them is a human call based on the sorted DSC list.
+  const DSC_LEAF_IDS = ["cL1a", "cL1b", "cL6a", "cL6b", "cL7a", "cL7b"];
+  const DSC_SEEDED_IDS = ["A1", "B1", "A6", "B6", "A7", "B7"];
+  nodes.forEach((n) => {
+    if (DSC_LEAF_IDS.includes(n.id)) n.dscOnly = true;
+    if (DSC_SEEDED_IDS.includes(n.id)) n.manual = true;
+  });
+
   return nodes;
 }
 
@@ -588,6 +600,14 @@ function App() {
       if (!isClub) {
         setWorldNodes((prev) => prev.map((n) => ({ ...n, teamA: rn(n.teamA), teamB: rn(n.teamB), winner: rn(n.winner) })));
       }
+      if (isClub) {
+        // DSC scores are keyed by team display name too — carry those over.
+        setDscScores((prev) => {
+          const out = {};
+          Object.keys(prev).forEach((name) => { out[rn(name)] = prev[name]; });
+          return out;
+        });
+      }
     }
     (isClub ? setClubRoster : setWorldRoster)(next);
     return Object.keys(renames).length;
@@ -604,7 +624,7 @@ function App() {
     const t = setTimeout(() => {
       try {
         window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
-          clubRoster, worldRoster, slots, posts, worldNodes, featuredSheetId,
+          clubRoster, worldRoster, slots, posts, worldNodes, featuredSheetByDraw, dscScores,
         }));
         setSaveStatus("saved");
       } catch (e) {
@@ -612,7 +632,7 @@ function App() {
       }
     }, 400);
     return () => clearTimeout(t);
-  }, [clubRoster, worldRoster, slots, posts, worldNodes, featuredSheetId]);
+  }, [clubRoster, worldRoster, slots, posts, worldNodes, featuredSheetByDraw, dscScores]);
 
   const clubTeams = useMemo(() => clubRoster.map((t) => t.display), [clubRoster]);
   const worldTeams = useMemo(() => worldRoster.map((t) => t.display), [worldRoster]);
@@ -627,7 +647,18 @@ function App() {
   const [clubNodes, setClubNodes] = useState(buildClubTemplate());
   const [worldNodes, setWorldNodes] = useState(() => saved?.worldNodes || buildWorldTemplate());
 
-  const [featuredSheetId, setFeaturedSheetId] = useState(saved?.featuredSheetId ?? 3);
+  // Featured (commentated) sheet is per-draw — either 3 or 4, or unset
+  // entirely (no featured sheet that draw). Nothing is preset.
+  const [featuredSheetByDraw, setFeaturedSheetByDraw] = useState(saved?.featuredSheetByDraw || {});
+  const setFeaturedSheet = (drawId, sheetId) => {
+    setFeaturedSheetByDraw((prev) => ({ ...prev, [drawId]: sheetId || null }));
+  };
+
+  // Draw Shot Challenge: a score per team, independent of any single game.
+  const [dscScores, setDscScores] = useState(saved?.dscScores || {});
+  const setDscScore = (teamName, value) => {
+    setDscScores((prev) => ({ ...prev, [teamName]: value }));
+  };
 
   const [confirmRegenDraw, setConfirmRegenDraw] = useState(null);
   const [scheduleModalDraw, setScheduleModalDraw] = useState(null);
@@ -783,10 +814,11 @@ function App() {
 
   const buildPostText = (drawId) => {
     const draw = DRAWS.find((d) => d.id === drawId);
+    const featuredSheetId = featuredSheetByDraw[drawId] || null;
     let text = `🥌 ${draw.label} — ${draw.dayFull} ${draw.date}, ${draw.time.replace(`${draw.day} `, "")}\n\n`;
     SHEETS.forEach((sheet) => {
       const s = getSlot(drawId, sheet.id);
-      const isFeatured = sheet.id === featuredSheetId;
+      const isFeatured = featuredSheetId != null && sheet.id === featuredSheetId;
       const link = isFeatured ? FEATURED_YOUTUBE : sheet.youtube;
       if (s.teamA || s.teamB) {
         const evTag = s.event ? `[${s.event === "club" ? "Club" : "World"}]` : "";
@@ -889,8 +921,8 @@ function App() {
             setSelectedDrawId={setSelectedDrawId}
             getSlot={getSlot}
             setSheetTeam={setSheetTeam}
-            featuredSheetId={featuredSheetId}
-            setFeaturedSheetId={setFeaturedSheetId}
+            featuredSheetByDraw={featuredSheetByDraw}
+            setFeaturedSheet={setFeaturedSheet}
             posts={posts}
             generate={generate}
             updatePostText={updatePostText}
@@ -915,6 +947,8 @@ function App() {
             clubTeams={clubTeams}
             clubRoster={clubRoster}
             isLocked={isLocked}
+            dscScores={dscScores}
+            setDscScore={setDscScore}
           />
         )}
         {tab === "bracket-world" && (
@@ -1048,7 +1082,7 @@ const btnSmall = {
 // ------------------------------------------------------------------
 
 function DrawsTab({
-  selectedDrawId, setSelectedDrawId, getSlot, setSheetTeam, featuredSheetId, setFeaturedSheetId,
+  selectedDrawId, setSelectedDrawId, getSlot, setSheetTeam, featuredSheetByDraw, setFeaturedSheet,
   posts, generate, updatePostText, addPhotos, removePhoto, submitNow, openSchedule, isLocked,
   clubTeams, worldTeams,
 }) {
@@ -1119,13 +1153,14 @@ function DrawsTab({
           </div>
 
           <div style={{ fontSize: 12, color: "#8a94a0", marginBottom: 8 }}>
-            Featured stream sheet:{" "}
+            Featured stream sheet (this draw only):{" "}
             <select
-              value={featuredSheetId}
+              value={featuredSheetByDraw[draw.id] || ""}
               disabled={locked}
-              onChange={(e) => setFeaturedSheetId(Number(e.target.value))}
+              onChange={(e) => setFeaturedSheet(draw.id, e.target.value ? Number(e.target.value) : null)}
               style={{ fontSize: 12, padding: "2px 6px" }}
             >
+              <option value="">None — no commentated stream this draw</option>
               <option value={3}>Sheet 3</option>
               <option value={4}>Sheet 4</option>
             </select>
@@ -1135,7 +1170,7 @@ function DrawsTab({
             {SHEETS.map((sheet) => {
               const s = getSlot(draw.id, sheet.id);
               const teams = s.event === "world" ? worldTeams : s.event === "club" ? clubTeams : [...clubTeams, ...worldTeams];
-              const isFeatured = sheet.id === featuredSheetId;
+              const isFeatured = !!featuredSheetByDraw[draw.id] && sheet.id === featuredSheetByDraw[draw.id];
               const noGame = !s.event && !s.bracketLabel;
               if (noGame) {
                 return (
@@ -1484,7 +1519,6 @@ function ClubRosterTab({ roster, onChange, onImport }) {
               <th style={rosterTh}>Female last</th>
               <th style={rosterTh}>Male first</th>
               <th style={rosterTh}>Male last</th>
-              <th style={rosterTh}>Contact email</th>
             </tr>
           </thead>
           <tbody>
@@ -1498,7 +1532,6 @@ function ClubRosterTab({ roster, onChange, onImport }) {
                 <td style={rosterTd}><EditableText value={t.femaleLast} onCommit={(v) => onChange(idx, { femaleLast: v })} /></td>
                 <td style={rosterTd}><EditableText value={t.maleFirst} onCommit={(v) => onChange(idx, { maleFirst: v })} /></td>
                 <td style={rosterTd}><EditableText value={t.maleLast} onCommit={(v) => onChange(idx, { maleLast: v })} /></td>
-                <td style={rosterTd}><EditableText value={t.email} onCommit={(v) => onChange(idx, { email: v })} /></td>
               </tr>
             ))}
           </tbody>
@@ -1641,7 +1674,47 @@ function WinnerRadio({ checked, onSelect, disabled, label }) {
   );
 }
 
-function ClubBracketTab({ nodes, getSlot, setSlot, setClubTeam, setClubWinner, chooseClubLoserDestination, clearClubG1, clubTeams, clubRoster, isLocked }) {
+function DscPanel({ dscSorted, dscScores, setDscScore }) {
+  if (dscSorted.length === 0) return null;
+  return (
+    <div style={{ background: "#fff", borderRadius: 12, padding: 14, boxShadow: "0 1px 3px rgba(20,30,40,0.08)", marginBottom: 16, border: "1px solid #e8b84b" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4 }}>
+        <div style={{ fontSize: 13.5, fontWeight: 800, color: "#12202e" }}>🎯 Draw Shot Challenge</div>
+        <span style={{ fontSize: 11.5, color: "#8a94a0" }}>Seeds A1 / B1 / A6 / B6 / A7 / B7 — closest to the pin wins</span>
+      </div>
+      <div style={{ fontSize: 11.5, color: "#8a94a0", marginBottom: 10 }}>
+        Every team from the Fri 4:00 PM and Fri 10:15 PM G1 games throws one DSC stone instead of that game deciding anything.
+        Enter each team's distance below — the list sorts itself lowest to highest. Resolve this before Saturday's draws start:
+        once you know the order, place teams into A1/B1/A6/B6/A7/B7 by hand in the games just below (their pickers are unlocked, same as G1).
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+        {dscSorted.map((row, i) => {
+          const hasScore = dscScores[row.team] !== undefined && dscScores[row.team] !== "";
+          return (
+            <div key={row.team} style={{
+              display: "flex", alignItems: "center", gap: 10, padding: "6px 10px",
+              borderRadius: 8, background: i % 2 === 0 ? "#fafcfd" : "#fff",
+            }}>
+              <span style={{ width: 22, fontSize: 11.5, fontWeight: 800, color: hasScore ? "#8a5a00" : "#c7ccd1" }}>
+                {hasScore ? `#${i + 1}` : "—"}
+              </span>
+              <span style={{ flex: 1, fontSize: 13, fontWeight: 700, color: "#22303e" }}>{row.team}</span>
+              <span style={{ fontSize: 10.5, color: "#aab4bd" }}>{row.from}</span>
+              <input
+                type="number" step="0.01" placeholder="distance"
+                value={dscScores[row.team] ?? ""}
+                onChange={(e) => setDscScore(row.team, e.target.value)}
+                style={{ width: 80, fontSize: 12.5, padding: "4px 8px", borderRadius: 6, border: "1px solid #d7dee5", textAlign: "right" }}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function ClubBracketTab({ nodes, getSlot, setSlot, setClubTeam, setClubWinner, chooseClubLoserDestination, clearClubG1, clubTeams, clubRoster, isLocked, dscScores, setDscScore }) {
   const nodesById = useMemo(() => {
     const m = {};
     nodes.forEach((n) => { m[n.id] = n; });
@@ -1683,6 +1756,29 @@ function ClubBracketTab({ nodes, getSlot, setSlot, setClubTeam, setClubWinner, c
     return set;
   }, [nodes, getSlot]);
 
+  // Teams currently sitting in one of the six DSC-only G1 games.
+  const dscTeams = useMemo(() => {
+    const list = [];
+    const seen = new Set();
+    nodes.filter((n) => n.dscOnly).forEach((n) => {
+      const slot = getSlot(n.drawId, n.sheet);
+      [slot.teamA, slot.teamB].forEach((team) => {
+        if (team && !seen.has(team)) {
+          seen.add(team);
+          list.push({ team, from: `${n.day} ${n.time} · Sheet ${n.sheet}` });
+        }
+      });
+    });
+    return list;
+  }, [nodes, getSlot]);
+
+  const dscSorted = useMemo(() => {
+    const withScore = dscTeams.filter((t) => dscScores[t.team] !== undefined && dscScores[t.team] !== "");
+    const withoutScore = dscTeams.filter((t) => dscScores[t.team] === undefined || dscScores[t.team] === "");
+    withScore.sort((a, b) => Number(dscScores[a.team]) - Number(dscScores[b.team]));
+    return [...withScore, ...withoutScore];
+  }, [dscTeams, dscScores]);
+
   return (
     <div>
       <div style={{ marginBottom: 4, fontSize: 17, fontWeight: 800, color: "#12202e" }}>
@@ -1697,8 +1793,11 @@ function ClubBracketTab({ nodes, getSlot, setSlot, setClubTeam, setClubWinner, c
       <TeamPool clubRoster={clubRoster} assignedNames={assignedNames} />
 
       <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-        {groups.map((g) => (
-          <div key={g.drawId}>
+        {groups.map((g, gi) => {
+          const isLastFriday = g.draw?.day === "Fri" && groups[gi + 1]?.draw?.day !== "Fri";
+          return (
+          <React.Fragment key={g.drawId}>
+          <div>
             <div style={{
               fontSize: 12.5, fontWeight: 800, color: "#5b6672", marginBottom: 8,
               display: "flex", alignItems: "center", gap: 8,
@@ -1737,7 +1836,7 @@ function ClubBracketTab({ nodes, getSlot, setSlot, setClubTeam, setClubWinner, c
                     {n.bracket && (
                       <div style={{ fontSize: 10.5, color: "#8a94a0", marginBottom: 8 }}>{n.bracket}</div>
                     )}
-                    {!n.manual && (
+                    {!n.manual && !n.dscOnly && (
                       <label style={{
                         display: "flex", alignItems: "center", gap: 6, marginBottom: 8, cursor: locked ? "default" : "pointer",
                         fontSize: 10.5, fontWeight: 700, color: slot.override ? "#8a5a00" : "#9aa5af",
@@ -1751,6 +1850,11 @@ function ClubBracketTab({ nodes, getSlot, setSlot, setClubTeam, setClubWinner, c
                         />
                         Override — hand-pick teams (use only if the advancement got it wrong)
                       </label>
+                    )}
+                    {n.dscOnly && (
+                      <div style={{ fontSize: 10.5, fontWeight: 700, color: "#8a5a00", background: "#fff9ef", borderRadius: 6, padding: "4px 8px", marginBottom: 8 }}>
+                        🎯 Draw Shot Challenge — no game winner here, see panel below
+                      </div>
                     )}
 
                     {/* Team A row */}
@@ -1770,12 +1874,14 @@ function ClubBracketTab({ nodes, getSlot, setSlot, setClubTeam, setClubWinner, c
                           {slot.teamA || "TBD (advances automatically)"}
                         </div>
                       )}
-                      <WinnerRadio
-                        checked={slot.winnerSide === "A"}
-                        disabled={locked || !bothFilled}
-                        onSelect={() => setClubWinner(n.id, "A")}
-                        label="Winner"
-                      />
+                      {!n.dscOnly && (
+                        <WinnerRadio
+                          checked={slot.winnerSide === "A"}
+                          disabled={locked || !bothFilled}
+                          onSelect={() => setClubWinner(n.id, "A")}
+                          label="Winner"
+                        />
+                      )}
                     </div>
 
                     <div style={{ textAlign: "center", fontSize: 10.5, color: "#aab4bd", margin: "3px 0" }}>vs</div>
@@ -1797,48 +1903,57 @@ function ClubBracketTab({ nodes, getSlot, setSlot, setClubTeam, setClubWinner, c
                           {slot.teamB || "TBD (advances automatically)"}
                         </div>
                       )}
-                      <WinnerRadio
-                        checked={slot.winnerSide === "B"}
-                        disabled={locked || !bothFilled}
-                        onSelect={() => setClubWinner(n.id, "B")}
-                        label="Winner"
-                      />
-                    </div>
-
-                    <div style={{ marginTop: 6, paddingTop: 8, borderTop: "1px solid #eef1f4", fontSize: 11.5, lineHeight: 1.6 }}>
-                      <div style={{ color: "#1c7a3d" }}>
-                        <strong>Winner →</strong> {describeClubDestination(nodesById, n.winnerTo)}
-                      </div>
-                      <div style={{ color: "#a33327" }}>
-                        <strong>Loser →</strong> {describeClubDestination(nodesById, n.loserTo)}
-                      </div>
-                      {isAmbiguousLoser && slot.winnerSide && (
-                        <div style={{ marginTop: 6, display: "flex", gap: 6, alignItems: "center" }}>
-                          <span style={{ color: "#8a94a0" }}>Send loser to:</span>
-                          {n.loserTo.map((c) => (
-                            <button
-                              key={c.id}
-                              disabled={locked}
-                              onClick={() => chooseClubLoserDestination(n.id, c.id)}
-                              style={{
-                                fontSize: 11, fontWeight: 700, padding: "3px 9px", borderRadius: 999, cursor: "pointer",
-                                border: "1px solid " + (slot.loserChoice === c.id ? "#a33327" : "#d7dee5"),
-                                background: slot.loserChoice === c.id ? "#fdecea" : "#fff",
-                                color: slot.loserChoice === c.id ? "#a33327" : "#5b6672",
-                              }}
-                            >
-                              {c.id}
-                            </button>
-                          ))}
-                        </div>
+                      {!n.dscOnly && (
+                        <WinnerRadio
+                          checked={slot.winnerSide === "B"}
+                          disabled={locked || !bothFilled}
+                          onSelect={() => setClubWinner(n.id, "B")}
+                          label="Winner"
+                        />
                       )}
                     </div>
+
+                    {!n.dscOnly && (
+                      <div style={{ marginTop: 6, paddingTop: 8, borderTop: "1px solid #eef1f4", fontSize: 11.5, lineHeight: 1.6 }}>
+                        <div style={{ color: "#1c7a3d" }}>
+                          <strong>Winner →</strong> {describeClubDestination(nodesById, n.winnerTo)}
+                        </div>
+                        <div style={{ color: "#a33327" }}>
+                          <strong>Loser →</strong> {describeClubDestination(nodesById, n.loserTo)}
+                        </div>
+                        {isAmbiguousLoser && slot.winnerSide && (
+                          <div style={{ marginTop: 6, display: "flex", gap: 6, alignItems: "center" }}>
+                            <span style={{ color: "#8a94a0" }}>Send loser to:</span>
+                            {n.loserTo.map((c) => (
+                              <button
+                                key={c.id}
+                                disabled={locked}
+                                onClick={() => chooseClubLoserDestination(n.id, c.id)}
+                                style={{
+                                  fontSize: 11, fontWeight: 700, padding: "3px 9px", borderRadius: 999, cursor: "pointer",
+                                  border: "1px solid " + (slot.loserChoice === c.id ? "#a33327" : "#d7dee5"),
+                                  background: slot.loserChoice === c.id ? "#fdecea" : "#fff",
+                                  color: slot.loserChoice === c.id ? "#a33327" : "#5b6672",
+                                }}
+                              >
+                                {c.id}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
                 );
               })}
             </div>
           </div>
-        ))}
+          {isLastFriday && (
+            <DscPanel dscSorted={dscSorted} dscScores={dscScores} setDscScore={setDscScore} />
+          )}
+          </React.Fragment>
+          );
+        })}
       </div>
     </div>
   );
