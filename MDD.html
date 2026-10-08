@@ -619,21 +619,6 @@ function App() {
     window.location.reload();
   };
 
-  // Autosave (debounced) whenever any saved piece of state changes.
-  useEffect(() => {
-    const t = setTimeout(() => {
-      try {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
-          clubRoster, worldRoster, slots, posts, worldNodes, featuredSheetByDraw, dscScores,
-        }));
-        setSaveStatus("saved");
-      } catch (e) {
-        setSaveStatus("error"); // storage full (photos are the usual cause) or unavailable
-      }
-    }, 400);
-    return () => clearTimeout(t);
-  }, [clubRoster, worldRoster, slots, posts, worldNodes, featuredSheetByDraw, dscScores]);
-
   const clubTeams = useMemo(() => clubRoster.map((t) => t.display), [clubRoster]);
   const worldTeams = useMemo(() => worldRoster.map((t) => t.display), [worldRoster]);
 
@@ -659,6 +644,21 @@ function App() {
   const setDscScore = (teamName, value) => {
     setDscScores((prev) => ({ ...prev, [teamName]: value }));
   };
+
+  // Autosave (debounced) whenever any saved piece of state changes.
+  useEffect(() => {
+    const t = setTimeout(() => {
+      try {
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          clubRoster, worldRoster, slots, posts, worldNodes, featuredSheetByDraw, dscScores,
+        }));
+        setSaveStatus("saved");
+      } catch (e) {
+        setSaveStatus("error"); // storage full (photos are the usual cause) or unavailable
+      }
+    }, 400);
+    return () => clearTimeout(t);
+  }, [clubRoster, worldRoster, slots, posts, worldNodes, featuredSheetByDraw, dscScores]);
 
   const [confirmRegenDraw, setConfirmRegenDraw] = useState(null);
   const [scheduleModalDraw, setScheduleModalDraw] = useState(null);
